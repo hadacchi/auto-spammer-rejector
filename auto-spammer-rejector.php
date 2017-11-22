@@ -1,15 +1,15 @@
 <?php
 /**
  * @package Automatic_Spammer_Rejector
- * @version 0.2
+ * @version 0.4
  */
 /*
 Plugin Name: Automatic Spammer Rejector
-Plugin URI: http://www.hadacchi.com/
+Plugin URI: https://www.hadacchi.com/
 Description: This plugin count spammers comment according to marks by Akismet. This plugin read the data from the database of your wordpress to count the number of comment marked `spam'. 
 Author: hadacchi
-Version: 0.2
-Author URI: http://www.hadacchi.com/
+Version: 0.4
+Author URI: https://www.hadacchi.com/
 */
 
 class AutoSpammerRejector {
@@ -33,9 +33,9 @@ class AutoSpammerRejector {
         // update spammers' ips when any comments are posted
         add_action( 'comment_post', array($this, 'sips'));
         // if a spammer try to post comments, reject
-        add_action( 'comment_post', array($this, 'ip_check') );
+        //add_action( 'comment_post', array($this, 'ip_check') );
         // reject spammers completely
-        //add_action( 'init', array($this, 'ip_check') );
+        add_action( 'init', array($this, 'ip_check') );
         // output ip addr and the number of spam comments of each spammer (site admin)
         //add_action( 'admin_notices', array($this, 'sips_out') );
         // output ip addr and the number of spam comments of each spammer (dashboard)
